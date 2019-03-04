@@ -2,6 +2,7 @@
 #include <stdio.h>
 
 void render(void);
+void keyboard(unsigned char c, int x, int y);
 
 int main(int argc, char **argv){
 	glutInit(&argc, argv);
@@ -10,6 +11,7 @@ int main(int argc, char **argv){
 	glutInitWindowPosition(100, 100);
 	glutCreateWindow("My new window");
 	glutDisplayFunc(render);
+	glutKeyboardFunc(keyboard);
 	glutMainLoop();
 	
 	return 0;
@@ -23,7 +25,13 @@ void render(void) {
 		glColor3f(0,1,0);
 		glVertex2f(0.5, -0.5);
 		glColor3f(0,0,1);
-		glVertex2f(-0.5, 0.5);
+		glVertex2f(0, 0.5);
 		glEnd();
 		glutSwapBuffers();
+}
+
+void keyboard(unsigned char c, int x, int y){
+		if(c == 27){
+			exit(0);
+		}
 }
