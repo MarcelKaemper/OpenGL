@@ -36,7 +36,9 @@ void render(){
 	 * 2        4
 	*/
 
+	/* Columns */
 	for(int j = 0; j<10;j++){
+		/* Rows */
 		for(int i = 0; i<10;i++){
 			glBegin(GL_POLYGON);
 				/* 1 */	
