@@ -18,39 +18,42 @@ int main(int argc, char **argv){
 void render(){
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	float size = 0.1;
-	float space = 0.05;
-	float spacerSize = size+space;
 
-	/* glBegin(GL_POLYGON); */
-	/* 	glVertex2f(-1,1); */
-	/* 	glVertex2f(-1+size,1); */
-	/* 	glVertex2f(-1+size,1-size); */
-	/* 	glVertex2f(-1,1-size); */
-	/* glEnd(); */
+	/* 
+	 *
+	 * Corner numbering system of each rectangle which
+	 * I used in the comments of the for loop 
+	 *
+	 * 1        3 
+	 * __________
+	 * |        |
+	 * |        |
+	 * |        |
+	 * |        |
+	 * |        |
+	 * |        |
+	 * __________
+	 * 2        4
+	*/
 
-	/* glBegin(GL_POLYGON); */
-	/* 	glVertex2f(-1+size,1); */
-	/* 	glVertex2f(-1+size*2,1); */
-	/* 	glVertex2f(-1+size*2,1-size); */
-	/* 	glVertex2f(-1,1-size); */
-	/* glEnd(); */
-
-	for(int i = 0; i<10;i++){
-		glBegin(GL_POLYGON);
-			/* 1 */	
-			glColor3f(1,0,1);	
-			glVertex2f(-1+size*i,1);
-			/* 3 */	
-			glColor3f(0,0,1);	
-			glVertex2f(-1+size+size*i,1);
-			/* 4 */	
-			glColor3f(1,0,0);	
-			glVertex2f(-1+size+size*i,1-size);
-			/* 2 */	
-			glColor3f(1,1,1);	
-			glVertex2f(-1+size*i,1-size);
-		glEnd();
-		glFlush();
+	for(int j = 0; j<10;j++){
+		for(int i = 0; i<10;i++){
+			glBegin(GL_POLYGON);
+				/* 1 */	
+				glColor3f(1,0,1);	
+				glVertex2f(-1+size*i,1-size*j);
+				/* 3 */	
+				glColor3f(0,0,1);	
+				glVertex2f(-1+size+size*i,1-size*j);
+				/* 4 */	
+				glColor3f(1,0,0);	
+				glVertex2f(-1+size+size*i,1-size-size*j);
+				/* 2 */	
+				glColor3f(1,1,1);	
+				glVertex2f(-1+size*i,1-size-size*j);
+			glEnd();
+			glFlush();
+		}
 	}
 
 
