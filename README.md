@@ -6,6 +6,7 @@ code examples here, it may help somebody.
 + rectangle.c - A simple rectangle in a OpenGL window
 + 3DObject.c - A 3D Cube, turnable using arrow keys
 + grid.c - A grid drawer (May be useful for Minesweeper, Conway's Game of Life, (...))
++ 2Dmovement.c - Simple movable dot
 
 ## References:
 + [Some basic Glut](https://www.youtube.com/watch?v=SAmD_Aq1Un4)
