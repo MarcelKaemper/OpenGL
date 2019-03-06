@@ -1,7 +1,8 @@
 #include <GL/glut.h>
+#include <stdio.h>
 
 void render(void);
-void keyboard(int c, int x, int y);
+void keyboard(unsigned char c, int x, int y);
 
 int main(int argc, char **argv){
 	glutInit(&argc,argv);
@@ -10,21 +11,22 @@ int main(int argc, char **argv){
 	glutInitWindowPosition(100,100);
 	glutCreateWindow("Movement");
 	glutDisplayFunc(render);
-	glutSpecialFunc(keyboard);
+	glutKeyboardFunc(keyboard);
 	glutMainLoop();
 
 	return 0;
 }
 
 void render(){
-
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glutSwapBuffers();
 
 }
 
-void keyboard(int c, int x, int y){
-
+void keyboard(unsigned char c, int x, int y){
+	if(c == 27){
+		exit(0);	
+	}
 }
 
