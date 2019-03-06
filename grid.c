@@ -57,8 +57,7 @@ void render(){
 			glFlush();
 		}
 	}
-
-
 	glutSwapBuffers();
-
 }
+
+
